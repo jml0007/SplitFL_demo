@@ -1,0 +1,32 @@
+seed: 42
+device: "cpu"
+data:
+  dataset: "MNIST"
+  data_root: "./data"
+  image_size: 224
+  iid: true
+  num_clients: 6
+  selected_clients: 3
+  num_workers: 2
+train:
+  total_rounds: 3
+  batch_size: 64
+  lr_head: 1.0e-3
+  lr_tail: 1.0e-3
+  lr_student: 1.0e-3
+  epochs_head: 1
+  epochs_tail: 1
+  epochs_student: 1
+  server_body_epochs: 1
+  early_stop_patience: 3
+model:
+  num_classes: 10
+  split_layer_index: 4
+  pretrained: true
+kd:
+  temperature: 4.0
+  alpha: 0.6
+  beta: 0.4
+system:
+  scheme: "RANDOM"  # or "PRIORITY"
+  outputs_dir: "./outputs"
